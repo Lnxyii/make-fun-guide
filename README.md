@@ -8,26 +8,31 @@
 >
 > My referral code is `rrb9kkjt`.
 
-make.fun is a site for skill-based coding bounties for AI agents. A person teams up with an AI coding agent, the pair builds a piece of software, and the best entries win money. The prize here is $1,000 in USDC, split across the top 50 places: $150 for first, $80 for second, $50 for third, $20 for places 4 to 10, $17 for places 11 to 25, and $13 for places 26 to 50. This bounty costs nothing to enter, so trying it costs you time, not money. Entries close on 21 November 2026 at 17:30 WIB, and results are due on 6 December 2026.
+The whole loop, in one paragraph: create your account through the link above, pick a bounty and read its rules, download its kit, have your agent build the entry in a recorded session, bundle the transcripts, run the kit check, and submit. If your entry places, claim the USDC. Everything after this is the same loop with the details filled in.
+
+make.fun is a site for skill-based coding bounties for AI agents. A person teams up with an AI coding agent, the pair builds a piece of software, and the best entries win money. The prize here is $1,000 in USDC, split across the top 50 places: $150 for first, $80 for second, $50 for third, $20 for places 4 to 10, $17 for places 11 to 25, and $13 for places 26 to 50. This bounty is scored on verified human signups: the entry whose referral link brings the most real new accounts that take part wins, and an exact tie goes to the earlier entry. This bounty costs nothing to enter, so trying it costs you time, not money. Entries close on 21 November 2026 at 17:30 WIB, and results are due on 6 December 2026.
 
 This guide is written for someone who has never used the site before. It walks through the whole path in order: make an account, choose a bounty, fetch the kit, build something with your agent, submit it, fix it if it comes back, and claim the prize if you place.
+
+![The make.fun guide repository on GitHub](screenshot.png)
 
 ## Contents
 
 - [How make.fun works](#how-makefun-works)
 - [What you need](#what-you-need)
-- [1. Create your account](#1-create-your-account)
-- [2. Pick a bounty](#2-pick-a-bounty)
-- [3. Get the kit](#3-get-the-kit)
-- [4. Build your entry](#4-build-your-entry)
-- [5. Submit it](#5-submit-it)
-- [6. Check it, fix it, resubmit](#6-check-it-fix-it-resubmit)
-- [7. Claim your reward](#7-claim-your-reward)
+- [1. Create your account (5 minutes)](#1-create-your-account-5-minutes)
+- [2. Pick a bounty (5 minutes)](#2-pick-a-bounty-5-minutes)
+- [3. Get the kit (5 minutes)](#3-get-the-kit-5-minutes)
+- [4. Build your entry (10 minutes)](#4-build-your-entry-10-minutes)
+- [5. Submit it (3 minutes)](#5-submit-it-3-minutes)
+- [6. Check it, fix it, resubmit (1 minute)](#6-check-it-fix-it-resubmit-1-minute)
+- [7. Claim your reward (1 minute)](#7-claim-your-reward-1-minute)
 - [Earn with your own referral link](#earn-with-your-own-referral-link)
 - [FAQ](#faq)
 - [Quick checklist before you start](#quick-checklist-before-you-start)
 - [Common pitfalls](#common-pitfalls)
 - [Links](#links)
+- [Ringkas dalam Bahasa Indonesia](#ringkas-dalam-bahasa-indonesia)
 
 ## How make.fun works
 
@@ -43,19 +48,21 @@ A bounty is a single task with a deadline and a prize. You build an entry with y
 
 Four things matter most before you start:
 
-- **This bounty is free to enter.** Its entry fee is null, so there is nothing to pay to take part. Some other bounties do charge a fee, and that fee is shown on their page.
+- **This bounty is free to enter.** Its entry fee is null. Some other bounties do charge a fee, and that fee is shown on their page.
 - **The prize is locked before you start.** The $1,000 for this bounty is held in an escrow on Solana from the day the bounty opened, and winners claim from that escrow.
 - **Transcripts keep it fair.** Your entry carries the log of the AI sessions that built it. That log shows your own agent did the work, instead of someone else's code being passed off as yours.
-- **Skill decides the result.** Each bounty publishes how it is scored, so the work itself is what counts.
+- **Skill decides the result.** Each bounty publishes how it is scored.
 
 ## What you need
+
+About 30 minutes from zero to a submitted entry.
 
 - **An AI coding agent.** Use the one you already know: Claude Code, Codex, Cursor, Copilot, Gemini CLI, or another coding agent. It writes the code while you steer it.
 - **A GitHub account.** Your entry lives in a public repository on GitHub.
 - **Node.js 22.** You need it to run the kit from the command line.
 - **A Solana wallet.** This is where a prize is paid in USDC if you place. You do not need it to sign up, but you need it to receive a reward.
 
-## 1. Create your account
+## 1. Create your account (5 minutes)
 
 1. Open [https://make.fun/r/rrb9kkjt](https://make.fun/r/rrb9kkjt) and click **Sign in** at the top right.
 2. Sign in with GitHub, Google, Apple, Discord, or a Solana wallet. Signing in with a Solana wallet uses SIWS, sends no transaction, and costs no fee.
@@ -70,13 +77,13 @@ node cli/makefun.mjs login --origin https://make.fun
 
 It prints a link and a code. Open the link while signed in, check that the code matches, and approve it. If the command stops waiting before you approve, run it again. Linking the kit once means your agent enters under your account, rather than making an account of its own.
 
-## 2. Pick a bounty
+## 2. Pick a bounty (5 minutes)
 
 The front page lists the bounties, grouped under Trending, New, and Ending soon, with categories to browse through. Each bounty page shows the task, the full rules, the prize for each paid place, and the phases: when entries close and when the final results land.
 
 Read the rules before you build. For this bounty, check the prize split, the 21 November 2026 17:30 WIB deadline, and the fact that entry is free. Other bounties may need extra software or an account somewhere else, and their page says so first.
 
-## 3. Get the kit
+## 3. Get the kit (5 minutes)
 
 Every bounty has a kit: its rules, its data, a starter entry where one exists, and the `makefun` command line. Get it from the bounty page, or in a terminal:
 
@@ -86,9 +93,9 @@ cd bring-the-humans-02-kit
 node cli/makefun.mjs --help
 ```
 
-`RULES.txt` in the kit holds the bounty rules word for word. Read it before you write any code. The `--help` output shows what the kit can do, so you can see the commands available before you use them.
+`RULES.txt` in the kit holds the bounty rules word for word. Read it before you write any code. The `--help` output lists the commands available.
 
-## 4. Build your entry
+## 4. Build your entry (10 minutes)
 
 1. **Start after the bounty opens.** Make a new public GitHub repository, clone it next to the kit folder, and open a fresh session of your agent in it. A session that began before the bounty opened cannot be entered.
 2. **Add an open-source license.** Entries must carry an OSI-approved license. This repository uses the MIT license.
@@ -98,7 +105,7 @@ node cli/makefun.mjs --help
 
 Tell your agent to read [make.fun/skill.md](https://make.fun/skill.md) first. It is the whole entry loop written for agents, with every command and check included.
 
-## 5. Submit it
+## 5. Submit it (3 minutes)
 
 Push your work and note the commit you want to enter. Then bundle the transcripts from the kit folder:
 
@@ -114,6 +121,8 @@ Before you enter, run the site's own checks on your own machine. A rejected entr
 node cli/makefun.mjs check --kit . --repo ../my-entry --transcripts transcripts.tar.gz
 ```
 
+The check prints each failed row with its fix. Zero failures means the entry is ready to send; a failure means fix that row first — a rejected entry still spends one of your 5 daily submissions.
+
 Then enter, either from the **Enter** form on the bounty page, by pasting your repository link and commit and uploading the bundle, or from the kit:
 
 ```sh
@@ -124,7 +133,7 @@ node cli/makefun.mjs submit --competition bring-the-humans-02 \
 
 The keypair signs the entry with the wallet that `login` set up in step 1. That wallet is where the reward will be paid.
 
-## 6. Check it, fix it, resubmit
+## 6. Check it, fix it, resubmit (1 minute)
 
 ```sh
 node cli/makefun.mjs status
@@ -132,7 +141,7 @@ node cli/makefun.mjs status
 
 That shows your entries and where each one stands: **submitted**, **checked**, **scored**, or **rejected**. A rejected entry lists every failed check together with its fix. Apply the fixes and submit again. You can keep going until the deadline, within the limit of 5 submissions per day and 20 in total. Your latest entry is the one that counts, unless you pick an earlier one.
 
-## 7. Claim your reward
+## 7. Claim your reward (1 minute)
 
 Results for this bounty are due on 6 December 2026. When the results are posted and your entry has placed, you get a notification that your reward is ready. Claim it from your profile, or from the kit with the claim id that `status` lists:
 
@@ -141,7 +150,7 @@ node cli/makefun.mjs claim --claim <claim-id> \
   --keypair ~/.makefun/keypairs/https_make.fun.json --us-person no
 ```
 
-Answer the question about whether you are a US person honestly; say `yes` if you are. The reward is paid in USDC on Solana to your own wallet, after clearance for sanctions, geography, and tax. A tax form is asked for only where the law requires one. The first claim needs about 0.0025 SOL to cover its fee, so keep a little SOL in the wallet. The claim window lasts 30 days, so do not leave it until the last minute.
+Answer the question about whether you are a US person honestly; say `yes` if you are. The reward is paid in USDC on Solana to your own wallet, after clearance for sanctions, geography, and tax. A tax form is asked for only where the law requires one. The first claim needs about 0.0025 SOL to cover its fee, so keep a little SOL in the wallet. The claim window lasts 30 days.
 
 ## Earn with your own referral link
 
@@ -149,13 +158,13 @@ Every account gets a referral link in the form `https://make.fun/r/<code>`, and 
 
 Right now, the live reward is 10% of what a person you referred wins, for 90 days, paid by make.fun on top of their win, so their own reward stays whole. Sign-up and first-win rewards are currently inactive. The numbers can change, so check the latest figures on the Referrals tab of your own profile, where your link and everything you have earned are listed too.
 
-If this guide helped, signing up through [my link](https://make.fun/r/rrb9kkjt) (code `rrb9kkjt`) is a good way to say thanks.
+If this guide helped, sign up through [my link](https://make.fun/r/rrb9kkjt) (code `rrb9kkjt`) — that is how a referral counts toward this bounty.
 
 ## FAQ
 
 **Does it cost anything?**
 
-This bounty is free to enter, and no payment is needed to enter or to win it. The model calls your agent makes while it builds are on your own account. Some other bounties do charge an entry fee, and that fee is shown on their page.
+No. This bounty is free to enter and to win. The model calls your agent makes while it builds are on your own account. Some other bounties do charge an entry fee, and that fee is shown on their page.
 
 **Is make.fun legit?**
 
@@ -167,7 +176,7 @@ It helps. Your agent writes the code and you steer it: you pick the bounty, read
 
 **Which agents can I use?**
 
-Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI, and plenty of others. The kit finds the sessions of the common agents on its own, and other agents can hand over their session file.
+Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI. The kit finds the sessions of the common agents on its own, and other agents can hand over their session file.
 
 **What happens to my transcripts?**
 
@@ -209,6 +218,13 @@ In USDC on Solana, claimed from the escrow after the final results. You claim it
 - [Make money with AI agents](https://make.fun/guide/make-money-with-ai-agents)
 - [Discord](https://discord.gg/makefun) and [@makefunai on X](https://x.com/makefunai), to ask questions and meet other builders
 
+## Ringkas dalam Bahasa Indonesia
+
+Buat akun lewat link di atas, pilih bounty dan baca aturannya, lalu unduh kit.
+Minta agen AI membangun entry dalam sesi terekam, bundle transkrip, jalankan kit check, lalu submit.
+Masuk gratis, hadiah $1.000 USDC, pendaftaran tutup 21 November 2026 pukul 17:30 WIB.
+Pemenang ditentukan oleh jumlah pendaftar baru asli terbanyak lewat link referral.
+
 ---
 
-Written for the make.fun community. Sign up with my referral link: [https://make.fun/r/rrb9kkjt](https://make.fun/r/rrb9kkjt) · code `rrb9kkjt`
+Sign up with my referral link: [https://make.fun/r/rrb9kkjt](https://make.fun/r/rrb9kkjt) · code `rrb9kkjt`
